@@ -17,3 +17,4 @@ Route::get('/api/count', 'index/getCount');
 Route::post('/api/count', 'index/updateCount');
 Route::get('/api/index', 'getHotArea/index');
 Route::get('/api/readitem', 'getHotArea/search_with_iid');
+Route::get('/api/readinfo', 'getHotArea/search_with_hid');
