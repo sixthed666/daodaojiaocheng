@@ -40,16 +40,12 @@ class GetHotArea
     public function search_with_iid(Request $request, Db $db)
     {
         $iid = $request->get('iid', 0);
-
-        $hotareas_String = $db->table('hotareas')->select();
-
+        $hotareas_String = $db->table('hotareas')->where('iid', $value)->pluck('json')->first();
         $data = json_decode($hotareas_String, true);
         if ($data !== null) {
-            $nestedJson = json_decode($data[$iid]['json'], true);
-
             $returnValue = [
                 "code" => 200,
-                "value" => $nestedJson
+                "value" => $data
             ];
             return json($returnValue);
         } else {
