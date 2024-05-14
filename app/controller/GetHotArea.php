@@ -56,4 +56,22 @@ class GetHotArea
             return json($returnValue);
         }
     }
+    public function search_with_hid(Request $request, Db $db)
+    {
+        $hid = $request->get('hid', 0);
+        $data = $db->table('info')->where('h_id', $hid)->value('content');
+        if ($data !== null) {
+            $returnValue = [
+                "code" => 200,
+                "value" => $data
+            ];
+            return json($returnValue);
+        } else {
+            $returnValue = [
+                "code" => 100,
+                "value" => "Error decoding JSON data"
+            ];
+            return json($returnValue);
+        }
+    }
 }
