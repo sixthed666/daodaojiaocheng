@@ -49,13 +49,7 @@ class GetHotArea
 
             $returnValue = [
                 "code" => 200,
-                "value" => array(
-                    "url" =>$nestedJson["url"],
-                    "top" =>$nestedJson["top"],
-                    "left" =>$nestedJson["left"],
-                    "width" =>$nestedJson["width"],
-                    "height" =>$nestedJson["height"]
-                    )
+                "value" => $nestedJson
             ];
             return json($returnValue);
         } else {
